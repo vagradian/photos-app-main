@@ -1,16 +1,21 @@
 import { photoArray } from './main.js';
 
 const picturesContainer = document.querySelector('.pictures');
+const pictureTemplate = document.getElementById('picture');
 
-let newPhotos = photoArray.map(photo => {
-  return `<a href="#" class="picture">
-      <img class="picture__img" src="${photo.url}" width="182" height="182" alt="Випадкова фотографія">
-      <p class="picture__info">
-        <span class="picture__comments">${photo.comments.length}</span>
-        <span class="picture__likes">${photo.likes}</span>
-      </p>
-    </a>`;
-}).join('');
+photoArray.forEach(photo => {
+  const picture = pictureTemplate.content.cloneNode(true);
 
-picturesContainer.innerHTML = newPhotos;
+  const img = picture.querySelector('.picture__img');
+  const commentsSpan = picture.querySelector('.picture__comments');
+  const likesSpan = picture.querySelector('.picture__likes');
+
+  img.src = photo.url;
+  img.alt = 'photo';
+  commentsSpan.textContent = photo.comments.length;
+  likesSpan.textContent = photo.likes;
+
+  picturesContainer.appendChild(picture);
+});
+
 
