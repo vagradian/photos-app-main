@@ -91,5 +91,5 @@ function generatePhotoObjects() {
   return photoArray;
 }
 
-const photoArray = generatePhotoObjects();
-console.log(photoArray);
+export const photoArray = generatePhotoObjects();
+// console.log(photoArray);
