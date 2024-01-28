@@ -1,21 +1,22 @@
 import { photoArray } from './main.js';
 
-const picturesContainer = document.querySelector('.pictures');
-const pictureTemplate = document.getElementById('picture');
+export function showPicture(photoArray) {
+  const picturesContainer = document.querySelector('.pictures');
+  const pictureTemplate = document.getElementById('picture');
 
-photoArray.forEach(photo => {
-  const picture = pictureTemplate.content.cloneNode(true);
+  photoArray.forEach(photo => {
+    const picture = pictureTemplate.content.cloneNode(true);
 
-  const img = picture.querySelector('.picture__img');
-  const commentsSpan = picture.querySelector('.picture__comments');
-  const likesSpan = picture.querySelector('.picture__likes');
+    const img = picture.querySelector('.picture__img');
+    const commentsSpan = picture.querySelector('.picture__comments');
+    const likesSpan = picture.querySelector('.picture__likes');
 
-  img.src = photo.url;
-  img.alt = 'photo';
-  commentsSpan.textContent = photo.comments.length;
-  likesSpan.textContent = photo.likes;
+    img.src = photo.url;
+    img.alt = 'photo';
+    commentsSpan.textContent = photo.comments.length;
+    likesSpan.textContent = photo.likes;
 
-  picturesContainer.appendChild(picture);
-});
-
+    picturesContainer.appendChild(picture);
+  });
+}
 
