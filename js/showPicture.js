@@ -1,6 +1,6 @@
 import { photoArray } from './main.js';
 
-export function showPicture(photoArray) {
+export function showPicture() {
   const picturesContainer = document.querySelector('.pictures');
   const pictureTemplate = document.getElementById('picture');
 
@@ -19,4 +19,3 @@ export function showPicture(photoArray) {
     picturesContainer.appendChild(picture);
   });
 }
-
